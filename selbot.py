@@ -1,12 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
 import selenium.webdriver.support.ui as ui
 from time import sleep
 
 
 def vote():
-
-    driver = webdriver.Firefox(executable_path=".\webdrivers\geckodriver.exe")
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(options=options, executable_path=".\webdrivers\geckodriver.exe")
     #driver = webdriver.Chrome()
     wait = ui.WebDriverWait(driver, 10)
     driver.get('https://poll.fm/11107997')
